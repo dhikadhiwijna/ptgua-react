@@ -104,14 +104,14 @@ const Carousel = ({ productData }) => {
           />
           <div
             ref={carousel}
-            className={`relative flex gap-20 h-[30rem] items-center overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-10`}
+            className={`carousel h-[40rem] flex items-center gap-16 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-10`}
           >
             {productList.length !== 1 &&
               productList.map((item, index) => {
                 return (
                   <Card
                     key={index}
-                    className="carousel-item relative snap-start"
+                    className="carousel-item relative snap-center"
                     id={item.id}
                     image={item.image}
                     title={item.title}

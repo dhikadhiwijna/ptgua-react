@@ -5,6 +5,7 @@ import { store } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import Loading from "./component/loading/Loading";
+import "tw-elements";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

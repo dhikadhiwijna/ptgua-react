@@ -14,7 +14,7 @@ const ProductCart = ({ stock, priceValue }) => {
   };
 
   const handleDecrement = () => {
-    if (total === 0 || total == null) {
+    if (total === 1 || total == null) {
       return setTotal((prevValue) => prevValue);
     }
     setTotal((prevValue) => prevValue - 1);
@@ -36,7 +36,6 @@ const ProductCart = ({ stock, priceValue }) => {
   return (
     <div className="p-4 w-96 rounded-lg border-gray shadow-[0_5px_10px_1px_rgba(0,0,0,0.1)] flex flex-col mb-10">
       <h3 className="font-extrabold text-xl py-3">
-        {" "}
         Atur jumlah yang akan dibeli
       </h3>
       <div className="flex lg:flex-row items-center justify-start flex-col">
@@ -53,7 +52,7 @@ const ProductCart = ({ stock, priceValue }) => {
           </button>
           <input
             className="h-8 w-24 outline-none focus:border-none flex justify-center text-center"
-            value={total}
+            value={Number(total).toString()}
             type="number"
             max={stock}
             onChange={handleChangeInput}
@@ -74,6 +73,9 @@ const ProductCart = ({ stock, priceValue }) => {
           <p className="text-orange ml-2 font-bold">Sisa {stock}</p>
         </div>
       </div>
+      {total === 0 && (
+        <p className="text-red-700">Minimal pembelian ini adalah 1 barang</p>
+      )}
       <div className="flex justify-end text-sm mb-2">
         <span className="line-through">{rupiahFormat(priceValue)}</span>
       </div>
